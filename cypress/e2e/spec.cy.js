@@ -33,13 +33,34 @@ describe('registration form functionality', () => {
   beforeEach(() => {
     cy.visit('localhost:5173')
   });
+  describe('form filled correctly and uncorrectly, check the submitted info', ()=> {
+
   it('able to fill registration form with correct data and submit the form ', () => {
 
 });
-   it('registration form is not filled, gets error ', () => {
+  it('registration form is not filled, gets error ', () => {
     
 });
- it('registration form is not filled, gets error ', () => {
-    
+  })
+
+
+
+ describe('form filled wrong credentials', ()=> {
+    describe ('fill in wrong email, get error', () => {
+    it('fill in email without @, get error',()=> {
+
+    }),
+    it('fill in email with "@" wihout "." && get error',()=> {
+      
+    })
+
 });
+
+  describe ('fill in less than 6 characters password, get error', () => {
+  it('fill in too short password',()=> {
+
+  });
+ 
+});
+ });
 })

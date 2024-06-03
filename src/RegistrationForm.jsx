@@ -72,7 +72,7 @@ const RegistrationForm = () => {
         <div>
           <label>Username:</label>
           <input
-             id="username"
+           id="username"
             type="text"
             name="username"
             value={formData.username}
