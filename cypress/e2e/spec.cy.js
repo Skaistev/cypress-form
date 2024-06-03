@@ -1,11 +1,4 @@
 /* eslint-disable no-undef */
-describe('template spec', () => {
-  it('passes', () => {
-    cy.visit('localhost:5173');
-
-
-  })
-})
 
 describe('elements check with empty fields', () => {
   beforeEach(() => {
@@ -16,8 +9,37 @@ describe('elements check with empty fields', () => {
     cy.contains('h3','Registration').should('be.visible'),
     //all form exist
     cy.get('form').should('be.visible'),
-     //username field exist
-     cy.contains('label','Username:').should('be.visible').and("have.value", "")
+     //fields of form exist
+    cy.contains('label','Username:').should('be.visible'),
+    cy.get("#username").should("be.visible").and("have.value", ""),
+    cy.contains('label','Email:').should('be.visible').and("have.value", ""),
+    cy.get("#email").should("be.visible").and("have.value", ""),
+    cy.contains('label','Password:').should('be.visible').and("have.value", ""),
+    cy.get("#password").should("be.visible").and("have.value", ""),
+    cy.contains('label','Date of Birth:').should('be.visible')
+    cy.get("#date").should("be.visible").and("have.value", "")
 
-  });
 });
+
+// submit btn exist 
+  it('submit button visible', () => { 
+  const element = cy.contains("button", /submit/i)
+  element.should('be.visible')
+});
+})
+
+
+describe('registration form functionality', () => {
+  beforeEach(() => {
+    cy.visit('localhost:5173')
+  });
+  it('able to fill registration form with correct data and submit the form ', () => {
+
+});
+   it('registration form is not filled, gets error ', () => {
+    
+});
+ it('registration form is not filled, gets error ', () => {
+    
+});
+})

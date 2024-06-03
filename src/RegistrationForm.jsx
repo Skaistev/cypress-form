@@ -72,7 +72,7 @@ const RegistrationForm = () => {
         <div>
           <label>Username:</label>
           <input
-           data-testid="username"
+             id="username"
             type="text"
             name="username"
             value={formData.username}
@@ -83,7 +83,7 @@ const RegistrationForm = () => {
         <div>
           <label>Email:</label>
           <input
-          data-testid="input"
+            id="email"
             type="email"
             name="email"
             value={formData.email}
@@ -94,7 +94,7 @@ const RegistrationForm = () => {
         <div>
           <label>Password:</label>
           <input
-            data-testid="password"
+            id="password"
             type="password"
             name="password"
             value={formData.password}
@@ -105,7 +105,7 @@ const RegistrationForm = () => {
         <div>
           <label>Date of Birth:</label>
           <input
-          data-testid="date"
+            id="date"
             type="date"
             name="dob"
             value={formData.dob}
