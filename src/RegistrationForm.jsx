@@ -26,7 +26,10 @@ const RegistrationForm = () => {
     if (!formData.username) formErrors.username = "Username is required";
     if (!formData.email) {
       formErrors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    } else if 
+    // (!formData.email.includes('@')&&!formData.email.includes('.'))
+    (!/\S+@\S+\.\S+/.test(formData.email)) 
+    {
       formErrors.email = "Email is invalid";
     }
     if (!formData.password) {
@@ -84,7 +87,7 @@ const RegistrationForm = () => {
           <label>Email:</label>
           <input
             id="email"
-            type="email"
+            type="text"
             name="email"
             value={formData.email}
             onChange={handleChange}
@@ -118,10 +121,10 @@ const RegistrationForm = () => {
       {submitted && (
         <div className="submitted-info">
           <h3>Submitted Information:</h3>
-          <p><strong>Username:</strong> {formData.username}</p>
-          <p><strong>Email:</strong> {formData.email}</p>
-          <p><strong>Date of Birth:</strong> {formData.dob}</p>
-          <p><strong>Age:</strong> {age} </p>
+          <p id='submittedUsername'><strong>Username:</strong>{formData.username}</p>
+          <p id='submittedEmail'><strong>Email:</strong> {formData.email}</p>
+          <p id='submittedDate'><strong>Date of Birth:</strong> {formData.dob}</p>
+          <p id= 'age'><strong>Age:</strong> {age} </p>
         </div>
       )}
     </div>

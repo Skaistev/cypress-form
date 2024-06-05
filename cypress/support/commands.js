@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -10,7 +11,25 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+Cypress.Commands.add('fillAndSubmit', (username='', email='', password='', date='') => {
+    cy.visit ('localhost:5173')
+    if(username){
+        cy.get("#username").type(username)
+    }
+    if(username){
+        cy.get("#email").type(email)
+    }
+    if(username){
+        cy.get("#password").type(password)
+    }
+    if(username){
+        cy.get("#date").type(date)
+    }
+
+    cy.contains("button", /submit/i).click()
+})
+
+
 //
 //
 // -- This is a child command --
