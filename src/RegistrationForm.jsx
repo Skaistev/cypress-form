@@ -21,6 +21,17 @@ const RegistrationForm = () => {
     });
   };
 
+  const calculateAge = (dob) => {
+    const birthDate = new Date(dob);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  };
+
   const validate = () => {
     let formErrors = {};
     if (!formData.username) formErrors.username = "Username is required";
@@ -40,22 +51,12 @@ const RegistrationForm = () => {
     if (!formData.dob) {
       formErrors.dob = "Date of Birth is required";
     } else if 
-    (isNaN(new Date(formData.dob).getTime())) 
+    // (isNaN(new Date(formData.dob).getTime())) 
+    (calculateAge(formData.dob)<0)
     {
-      formErrors.dob = "Date of Birth is invalid";
-    }
+      formErrors.dob = "Date of Birth can't be in future time";
+    } 
     return formErrors;
-  };
-
-  const calculateAge = (dob) => {
-    const birthDate = new Date(dob);
-    const today = new Date();
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const monthDiff = today.getMonth() - birthDate.getMonth();
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-    }
-    return age>-1? age: "invalid date of birth";
   };
 
   const handleSubmit = (e) => {
