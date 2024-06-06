@@ -42,3 +42,4 @@ Would like to run and test this project locally? Open terminal and follow these 
     npm run start
    ```
 
+![alt text](./image-1.png)

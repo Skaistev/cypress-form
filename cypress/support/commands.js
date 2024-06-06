@@ -12,7 +12,7 @@
 //
 // -- This is a parent command --
 Cypress.Commands.add('fillAndSubmit', (username='', email='', password='', date='') => {
-    cy.visit ('localhost:5173')
+  
     if(username){
         cy.get("#username").type(username)
     }
