@@ -9,6 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "npx cypress open",
+    "test:ui": "npx cypress run --browser chrome",
     "start": "concurrently \"npm run dev\" \"npm run test\""
   },
   "dependencies": {

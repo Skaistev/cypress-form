@@ -64,7 +64,7 @@ describe('registration form functionality', () => {
   })
   it('age in submitted info is correct',()=>{
     cy.fillAndSubmit(username, email, password, date);
-    cy.get("#age").should("include.text", expectedAge|| "invalid date of birth")
+    cy.get("#age").should("include.text", expectedAge || "invalid date of birth")
   })
 });
 describe ("submit form with incorrect data", ()=>{
