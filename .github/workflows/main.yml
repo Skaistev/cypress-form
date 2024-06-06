@@ -26,7 +26,7 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          const { context, github } = require('@actions/github');
+          const { github } = require('@actions/github');
           const runId = context.runId;
           const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${runId}`;
           await github.rest.actions.updateWorkflowRun({
