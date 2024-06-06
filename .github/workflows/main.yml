@@ -1,3 +1,4 @@
+
 name: Cypress Tests in chrome
 
 on: 
@@ -11,10 +12,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: '16.x' 
 
@@ -26,14 +27,14 @@ jobs:
       env:
         CI: true
 
-    - name: Wait for application to be ready
-      run: npx wait-on http://localhost:5173
+    # - name: Wait for application to be ready
+    #   run: npx wait-on http://localhost:5173
 
     - name: Run Cypress tests
-      run: npm test
+      run: npm test:ui
 
     - name: Upload Cypress test results
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: cypress-test-results
         path: cypress/reports
