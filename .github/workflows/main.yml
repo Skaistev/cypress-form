@@ -17,7 +17,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16.x' 
+        node-version: '18.x' 
 
     - name: Install dependencies
       run: npm install
@@ -32,7 +32,7 @@ jobs:
             owner: context.repo.owner,
             repo: context.repo.repo,
             run_id: context.runId,
-            name: 'Great success, first part of job done! Cypress Tests Started'
+            name: 'Cypress Tests Started'
           });
 
     - name: Start the application
@@ -57,7 +57,7 @@ jobs:
             owner: context.repo.owner,
             repo: context.repo.repo,
             run_id: context.runId,
-            name: 'Congratulations, Cypress Tests Succeeded'
+            name: 'Cypress Tests Succeeded'
           });
 
     - name: Upload Cypress test results
