@@ -1,7 +1,10 @@
 
-name: Cypress Tests
+name: Cypress Tests in chrome
 
-on: [push, pull_request]
+on: 
+  push:
+     branches: 
+      - main
 
 jobs:
   cypress-run:
