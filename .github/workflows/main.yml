@@ -31,7 +31,7 @@ jobs:
     #   run: npx wait-on http://localhost:5173
 
     - name: Run Cypress tests
-      run: npm test:ui
+      run: npx cypress run --browser chrome
 
     - name: Upload Cypress test results
       uses: actions/upload-artifact@v3
