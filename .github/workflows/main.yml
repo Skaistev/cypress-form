@@ -22,16 +22,43 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Set Workflow Run Name to "Cypress Tests Started"
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const { context } = require('@actions/github');
+          const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
+          await octokit.rest.actions.updateWorkflowRun({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            run_id: context.runId,
+            name: 'Great success, first part of job done! Cypress Tests Started'
+          });
+
     - name: Start the application
       run: npm run dev &
       env:
         CI: true
 
-    # - name: Wait for application to be ready
-    #   run: npx wait-on http://localhost:5173
+   
 
     - name: Run Cypress tests
       run: npx cypress run --browser chrome
+      
+      
+    - name: Set Workflow Run Name to "Cypress Tests Succeeded"
+      if: success()
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const { context } = require('@actions/github');
+          const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
+          await octokit.rest.actions.updateWorkflowRun({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            run_id: context.runId,
+            name: 'Congratulations, Cypress Tests Succeeded'
+          });
 
     - name: Upload Cypress test results
       uses: actions/upload-artifact@v3
