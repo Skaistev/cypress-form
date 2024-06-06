@@ -22,21 +22,6 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Set Workflow Title to "Workflow Started"
-      uses: actions/github-script@v6
-      with:
-        script: |
-          const { github } = require('@actions/github');
-          const runId = context.runId;
-          const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${runId}`;
-          await github.rest.actions.updateWorkflowRun({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            run_id: runId,
-            name: 'Workflow Started',
-          });
-
-
     - name: Start the application
       run: npm run dev &
       env:
